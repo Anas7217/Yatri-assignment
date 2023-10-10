@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<div class="showdata">
+    <table >
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>FullName</th>
+                <th>Email</th>
+                
+
+            </tr>
+        </thead>
+        <tbody>
+            
+            <% users.forEach(user => { %>
+                <tr>
+                    <!-- <td><%=user._id %></td> -->
+                    <td><a href="/users/<%=user._id %>"><%=user._id %></a></td>
+                    <td><%=user.fullname %></td>
+                    <td><%=user.email %></td>
+                    
+                </tr>
+
+            <% }) %>
+         
+        </tbody>
+    </table>
+
+    <div>
+        <%- include("./Editdata") %>
+    </div>
+
+    <div>
+        <h3>Delete Data</h3>
+        <form action="/delete-product" method="post">
+            <label for="id">id</label>
+            <input type="text" name="id" placeholder="id" />
+
+            <input type="submit">
+        </form>
+    </div>
+
+  
+</div>
